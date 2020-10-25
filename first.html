@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="1.css" rel="stylesheet"> <!--import css file to html-->
+</head>
+<body>
+<h1>Welcome to Yihan's Project for CIS 3110</h1>
+<div>
+<p>Let's start with a little game</p>
+<p>This website comes with 4 pages </p>
+<p class="ww">let's see if you can visit them all.</p>
+<p>Type some numbers into the input box below, then click the button, to see what will happen. </p>
+<em>Hint: Different number input may bring you to a different page.</em>
+
+  <input type="number" id="input" name="type a number in here."/><br>
+  <button id="1button">Submit & Show in Console</button><br>
+  <button id="2button" onclick="direction()">Click this Button brings you to the next page, based on your input</button>
+</div>
+<div>
+    <p id="1message"> Now let me show you what you just typed.<p/>
+      <p id="2message">
+      <p id="3message">
+</div>
+<div id="textresult"/>
+    <script>
+              document.getElementById('1button').onclick = function() //respond to button click event, above
+              {
+                var result = document.getElementById("input").value;
+                console.log("value of text input is now " + result);
+                document.getElementById('2message').innerHTML = "Now check if my result is correct.";
+                document.getElementById('3message').innerHTML = "you just typed: <strong> " + result + "</strong>";
+                document.getElementById('1message').innerHTML = "";
+              };
+
+              function direction() //function to decide the routeline of user
+              {
+                var x = document.getElementById('input').value;
+
+                if( x <= 100 )//check the input result and make decision to send to which page
+                {
+                  window.location.href = "info.html"; //set up link to next page
+                }else if (x > 100 && x <= 1000) {
+                  window.location.href = "0.html"
+                }else {
+                  window.location.href = "last.html";
+                }
+              };
+    </script>
+</body>
+</html>

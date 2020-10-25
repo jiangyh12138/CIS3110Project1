@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.dropbtn {
+    background-color: #BC8F8F;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #282828;
+  color: white;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #C28989;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Welcome to the fourth page of the website!</h1>
+<div>
+<p>Congrats to you to visit all pages of my website</p>
+<strong>Now you can navigate to any pages by the dropdown manu below</strong>
+<em>Move the mouse over the button to open the dropdown menu.</em><br>
+
+
+  <div class="dropdown">
+  <button class="dropbtn">Dropdown</button>
+    <div class="dropdown-content">
+      <a href="first.html">Home Page</a>
+      <a href="info.html">Info Collection Page</a>
+      <a href="0.html">Blank Page</a>
+      <a href="last.html">Stay Here</a>
+    </div>
+  </div>
+</div>
+<p>Design By <a href="mailto:yihanjiang@cpp.edu">Yihan Jiang</a></p><br>
+<p>Powered By <a href= http://aws.amazon.com >Amazon AWS Service</a></p><br>
+<p>Special thanks to my professor <a href="#">Stefan Bund</a></p>
+</body>
+</html>

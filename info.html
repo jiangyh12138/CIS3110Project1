@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="1.css" rel="stylesheet">
+</head>
+<h1>Here's the second page!</h1>
+<body id="page">
+  <div>
+    <p>Type two numbers in the first and second box below and your name in the last box.</p>
+    <input type="number" id="input1"/><br><!--collect a number from user here-->
+    <input type="number" id="input3"/><br>
+    <input type="text" id="input2"/><br><!--collect a name from user here -->
+    <button id="sbutton">Submit</button>
+  </div>
+    <script type="text/javascript">
+        document.getElementById('sbutton').onclick = function ()
+        {
+          var n1 = document.getElementById("input1").value; //get 1 number input value
+          var tvalue = document.getElementById("input2").value; //get text input value
+          var n2 = document.getElementById("input3").value; //get 2 number input value
+          console.log("The first number user just typed in is:" + n1); //show number in the Console
+          console.log("The second number user just typed in is:" + n2); //show number in the Console
+          console.log("The name user just typed in is:" + tvalue); //show name in the console
+          console.log("The number are type of " + typeof n1); //use typeof to get the variable type
+          console.log("The name is type of " + typeof tvalue);
+            wrapitup(n1,n2); //create new function to pass the value
+        };
+
+        function wrapitup(x,y) //define the function that use in the code above
+        {
+            var gcd1 = gcd(x,y);
+            var lcm1 = lcm(x,y,gcd1);
+            var dynamicDiv = document.createElement("div");//define a new div
+            var newp = document.createElement("p");//define a new p
+            var newMessage1 = "The Great Common Divisor of your two numbers is:" + gcd1; //add text into new p just defined
+            var nodeToPaint = document.createTextNode(newMessage1);//encode in a text node, for printing
+            var newMessage2 = "The Least Common Mutiple of your two numers is:" + lcm1;
+            var nodeToPaint2 = document.createTextNode(newMessage2);
+            newp.appendChild(nodeToPaint);//append new text into new p
+            newp.appendChild(document.createElement("br"));
+            newp.appendChild(nodeToPaint2);
+            dynamicDiv.appendChild(newp);//append new p to the new div
+            dynamicDiv.setAttribute("id", x); //set specific name and value for a new html element
+            var element = document.getElementById("page");//define the exact body
+            element.appendChild(dynamicDiv);//append new div into this body
+            createLink(x,y);
+        }
+        function createLink(n1,n2)//define the function that use to create a link in the previous function
+        {
+          var link = document.createElement('a');
+          var personsName = document.getElementById("input2").value; //get the link's title to use your name
+          var msg = "Go here now, " + personsName;
+          link.title = msg;
+
+          var text = "Ok, " + personsName + ", click here to go to new page based on your input #" + n1 + " and #" + n2;
+          var linkText = document.createTextNode(text);
+          link.appendChild(linkText); //apply the message to the anchor link
+
+          link.href = "0.html";
+          document.body.appendChild(link); //now put the link on the page
+        }
+        function gcd(x,y){
+          if (x%y == 0) {
+            return y;
+          }
+          return gcd(y,x%y);
+        }
+        function lcm(a,b,c){
+          var lcm1;
+          lcm1 = a * b / c;
+          return lcm1;
+        }
+    </script>
+</body>
+</html>
